@@ -3,6 +3,7 @@ import 'dart:math';
 import 'package:english_words/english_words.dart';
 // ignore: implementation_imports
 import 'package:flutter/material.dart';
+import 'package:platform_design/Stretch.dart';
 
 // This file has a number of platform-agnostic non-Widget utility functions.
 
@@ -62,10 +63,25 @@ List<MaterialColor> getRandomColors(int amount) {
   });
 }
 
+List<Stretch> getRandomStretches(int amount) {
+  var stretchNames = wordPairIterator
+      .take(amount)
+      .map((pair) => 'Stretch : ' + capitalizePair(pair) )
+      .toList();
+  var stretches = <Stretch>[];
+  for (var i = 0 ; i < stretchNames.length; i++){
+     stretches.add(Stretch(id: i,
+     Name: stretchNames.elementAt(i),
+
+     ));
+  }
+  return stretches;
+}
+
 List<String> getRandomNames(int amount) {
   return wordPairIterator
       .take(amount)
-      .map((pair) => capitalizePair(pair))
+      .map((pair) => 'Stretch : ' + capitalizePair(pair) )
       .toList();
 }
 

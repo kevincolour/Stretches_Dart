@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:platform_design/Stretch.dart';
 
 import 'widgets.dart';
 
@@ -11,7 +12,7 @@ class StretchDetailTab extends StatelessWidget {
   const StretchDetailTab({this.id, this.stretch, this.color});
 
   final int id;
-  final String stretch;
+  final Stretch stretch;
   final Color color;
 
   Widget _buildBody() {
@@ -79,7 +80,7 @@ class StretchDetailTab extends StatelessWidget {
 
   Widget _buildAndroid(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text(stretch)),
+      appBar: AppBar(title: Text(stretch.Name)),
       body: _buildBody(),
     );
   }
@@ -87,7 +88,7 @@ class StretchDetailTab extends StatelessWidget {
   Widget _buildIos(BuildContext context) {
     return CupertinoPageScaffold(
       navigationBar: CupertinoNavigationBar(
-        middle: Text(stretch),
+        middle: Text(stretch.Name),
         previousPageTitle: 'Songs',
       ),
       child: _buildBody(),

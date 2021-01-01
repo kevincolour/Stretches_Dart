@@ -1,8 +1,9 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:platform_design/Stretch.dart';
 
-import 'stretche_detail_tab.dart';
+import 'stretches_detail_tab.dart';
 import 'utils.dart';
 import 'widgets.dart';
 
@@ -25,6 +26,7 @@ class _StretchesTabState extends State<StretchesTab> {
   final _androidRefreshKey = GlobalKey<RefreshIndicatorState>();
 
   List<MaterialColor> colors;
+  List<Stretch> stretches;
   List<String> songNames;
 
   @override
@@ -35,7 +37,7 @@ class _StretchesTabState extends State<StretchesTab> {
 
   void _setData() {
     colors = getRandomColors(_itemsLength);
-    songNames = getRandomNames(_itemsLength);
+    stretches = getRandomStretches(_itemsLength);
   }
 
   Future<void> _refreshData() {
@@ -61,14 +63,14 @@ class _StretchesTabState extends State<StretchesTab> {
       child: Hero(
         tag: index,
         child: HeroAnimatingStretchCard(
-          stretch: songNames[index],
+          stretch: stretches[index],
           color: color,
           heroAnimation: AlwaysStoppedAnimation(0),
           onPressed: () => Navigator.of(context).push<void>(
             MaterialPageRoute(
               builder: (context) => StretchDetailTab(
                 id: index,
-                stretch: songNames[index],
+                stretch: stretches[index],
                 color: color,
               ),
             ),
