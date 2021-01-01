@@ -2,24 +2,24 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
-import 'song_detail_tab.dart';
+import 'stretche_detail_tab.dart';
 import 'utils.dart';
 import 'widgets.dart';
 
-class SongsTab extends StatefulWidget {
-  static const title = 'Songs';
-  static const androidIcon = Icon(Icons.music_note);
+class StretchesTab extends StatefulWidget {
+  static const title = 'Stretches';
+  static const androidIcon = Icon(Icons.accessibility_new);
   static const iosIcon = Icon(CupertinoIcons.music_note);
 
-  const SongsTab({Key key, this.androidDrawer}) : super(key: key);
+  const StretchesTab({Key key, this.androidDrawer}) : super(key: key);
 
   final Widget androidDrawer;
 
   @override
-  _SongsTabState createState() => _SongsTabState();
+  _StretchesTabState createState() => _StretchesTabState();
 }
 
-class _SongsTabState extends State<SongsTab> {
+class _StretchesTabState extends State<StretchesTab> {
   static const _itemsLength = 50;
 
   final _androidRefreshKey = GlobalKey<RefreshIndicatorState>();
@@ -60,15 +60,15 @@ class _SongsTabState extends State<SongsTab> {
       bottom: false,
       child: Hero(
         tag: index,
-        child: HeroAnimatingSongCard(
-          song: songNames[index],
+        child: HeroAnimatingStretchCard(
+          stretch: songNames[index],
           color: color,
           heroAnimation: AlwaysStoppedAnimation(0),
           onPressed: () => Navigator.of(context).push<void>(
             MaterialPageRoute(
-              builder: (context) => SongDetailTab(
+              builder: (context) => StretchDetailTab(
                 id: index,
-                song: songNames[index],
+                stretch: songNames[index],
                 color: color,
               ),
             ),
@@ -109,7 +109,7 @@ class _SongsTabState extends State<SongsTab> {
   Widget _buildAndroid(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text(SongsTab.title),
+        title: Text(StretchesTab.title),
         actions: [
           IconButton(
             icon: Icon(Icons.refresh),

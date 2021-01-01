@@ -7,11 +7,11 @@ import 'widgets.dart';
 ///
 /// On Android, this page sits at the top of your app. On iOS, this page is on
 /// top of the songs tab's content but is below the tab bar itself.
-class SongDetailTab extends StatelessWidget {
-  const SongDetailTab({this.id, this.song, this.color});
+class StretchDetailTab extends StatelessWidget {
+  const StretchDetailTab({this.id, this.stretch, this.color});
 
   final int id;
-  final String song;
+  final String stretch;
   final Color color;
 
   Widget _buildBody() {
@@ -24,8 +24,8 @@ class SongDetailTab extends StatelessWidget {
         children: [
           Hero(
             tag: id,
-            child: HeroAnimatingSongCard(
-              song: song,
+            child: HeroAnimatingStretchCard(
+              stretch: stretch,
               color: color,
               heroAnimation: AlwaysStoppedAnimation(1),
             ),
@@ -35,8 +35,8 @@ class SongDetailTab extends StatelessWidget {
             // It could either be specified here or in SongsTab.
             flightShuttleBuilder: (context, animation, flightDirection,
                 fromHeroContext, toHeroContext) {
-              return HeroAnimatingSongCard(
-                song: song,
+              return HeroAnimatingStretchCard(
+                stretch: stretch,
                 color: color,
                 heroAnimation: animation,
               );
@@ -79,7 +79,7 @@ class SongDetailTab extends StatelessWidget {
 
   Widget _buildAndroid(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text(song)),
+      appBar: AppBar(title: Text(stretch)),
       body: _buildBody(),
     );
   }
@@ -87,7 +87,7 @@ class SongDetailTab extends StatelessWidget {
   Widget _buildIos(BuildContext context) {
     return CupertinoPageScaffold(
       navigationBar: CupertinoNavigationBar(
-        middle: Text(song),
+        middle: Text(stretch),
         previousPageTitle: 'Songs',
       ),
       child: _buildBody(),

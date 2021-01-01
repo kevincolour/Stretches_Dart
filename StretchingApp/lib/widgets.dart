@@ -133,11 +133,11 @@ class _PressableCardState extends State<PressableCard>
 ///
 /// This is an example of a custom widget that an app developer might create for
 /// use on both iOS and Android as part of their brand's unique design.
-class HeroAnimatingSongCard extends StatelessWidget {
-  HeroAnimatingSongCard(
-      {this.song, this.color, this.heroAnimation, this.onPressed});
+class HeroAnimatingStretchCard extends StatelessWidget {
+  HeroAnimatingStretchCard(
+      {this.stretch, this.color, this.heroAnimation, this.onPressed});
 
-  final String song;
+  final String stretch;
   final Color color;
   final Animation<double> heroAnimation;
   final VoidCallback onPressed;
@@ -160,7 +160,7 @@ class HeroAnimatingSongCard extends StatelessWidget {
           color: color,
           flattenAnimation: heroAnimation,
           child: SizedBox(
-            height: 250,
+            height: 150,
             child: Stack(
               alignment: Alignment.center,
               children: [
@@ -175,7 +175,7 @@ class HeroAnimatingSongCard extends StatelessWidget {
                     alignment: Alignment.centerLeft,
                     padding: EdgeInsets.symmetric(horizontal: 12),
                     child: Text(
-                      song,
+                      stretch,
                       style: TextStyle(
                         fontSize: 21,
                         fontWeight: FontWeight.w500,
