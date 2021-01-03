@@ -158,12 +158,12 @@ class HeroAnimatingStretchCard extends StatelessWidget {
       builder: (context, child) {
         return PressableCard(
           onPressed: heroAnimation.value == 0 ? onPressed : null,
-          color: color,
+          color: Colors.white30,
           flattenAnimation: heroAnimation,
           child: Container(
             decoration: BoxDecoration(
                 image: DecorationImage(
-                    image: AssetImage('assets/stretch-1.jpg'), fit: BoxFit.cover)),
+                    image: AssetImage(stretch.image), fit: BoxFit.cover)),
             child : SizedBox(
               height: 250,
 
@@ -173,24 +173,7 @@ class HeroAnimatingStretchCard extends StatelessWidget {
                 alignment: Alignment.center,
                 children: [
                   // The song title banner slides off in the hero animation.
-                  Positioned(
-                    bottom: -80 * heroAnimation.value,
-                    left: 0,
-                    right: 0,
-                    child: Container(
-                      height: 50,
-                      color: Colors.black12,
-                      alignment: Alignment.centerLeft,
-                      padding: EdgeInsets.symmetric(horizontal: 12),
-                      child: Text(
-                        stretch.Name,
-                        style: TextStyle(
-                          fontSize: 20,
-                          fontWeight: FontWeight.w500,
-                        ),
-                      ),
-                    ),
-                  ),
+
                   // The play button grows in the hero animation.
                   Padding(
                     padding:
@@ -205,6 +188,28 @@ class HeroAnimatingStretchCard extends StatelessWidget {
                       alignment: Alignment.center,
                       child: Icon(Icons.play_arrow,
                           size: playButtonSize, color: Colors.black38),
+                    ),
+                  ),
+                  Positioned(
+                    bottom: -80 * heroAnimation.value,
+                    left: 0,
+                    right: 0,
+                    child: Container(
+                      decoration:  BoxDecoration(
+                        borderRadius:  BorderRadius.circular(16.0),
+                        color: Colors.white10,
+
+                      ),
+                        height: 50,
+                      alignment: Alignment.centerLeft,
+                      padding: EdgeInsets.symmetric(horizontal: 12),
+                      child: Text(
+                        stretch.name,
+                        style: TextStyle(
+                          fontSize: 20,
+                          fontWeight: FontWeight.w500,
+                        ),
+                      ),
                     ),
                   ),
                 ],

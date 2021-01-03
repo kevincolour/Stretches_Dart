@@ -80,7 +80,7 @@ class StretchDetailTab extends StatelessWidget {
 
   Widget _buildAndroid(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text(stretch.Name)),
+      appBar: AppBar(title: Text(stretch.name)),
       body: _buildBody(),
     );
   }
@@ -88,7 +88,7 @@ class StretchDetailTab extends StatelessWidget {
   Widget _buildIos(BuildContext context) {
     return CupertinoPageScaffold(
       navigationBar: CupertinoNavigationBar(
-        middle: Text(stretch.Name),
+        middle: Text(stretch.name),
         previousPageTitle: 'Songs',
       ),
       child: _buildBody(),

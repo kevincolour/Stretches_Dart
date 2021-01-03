@@ -70,9 +70,7 @@ List<Stretch> getRandomStretches(int amount) {
       .toList();
   var stretches = <Stretch>[];
   for (var i = 0 ; i < stretchNames.length; i++){
-     stretches.add(Stretch(id: i,
-     Name: stretchNames.elementAt(i),
-
+     stretches.add(Stretch(i,stretchNames.elementAt(i)
      ));
   }
   return stretches;

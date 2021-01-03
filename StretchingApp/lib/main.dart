@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:platform_design/stretching_excercises_tab.dart';
 
 import 'news_tab.dart';
 import 'profile_tab.dart';
@@ -56,12 +57,11 @@ class _PlatformAdaptingHomePageState extends State<PlatformAdaptingHomePage> {
   //
   // This isn't needed for apps that doesn't toggle platforms while running.
   final StretchesTabKey = GlobalKey();
-
   // In Material, this app uses the hamburger menu paradigm and flatly lists
   // all 4 possible tabs. This drawer is injected into the songs tab which is
   // actually building the scaffold around the drawer.
   Widget _buildAndroidHomePage(BuildContext context) {
-    return StretchesTab(
+    return StretchingExercisesTab(
       key: StretchesTabKey,
       androidDrawer: _AndroidDrawer(),
     );
@@ -134,22 +134,43 @@ class _AndroidDrawer extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
-          DrawerHeader(
-            decoration: BoxDecoration(color: Colors.green),
-            child: Padding(
-              padding: const EdgeInsets.only(bottom: 20),
-              child: Icon(
-                Icons.account_circle,
-                color: Colors.green.shade800,
-                size: 96,
-              ),
+          Container(
+            height: 150.0,
+            child:DrawerHeader(
+              decoration: BoxDecoration(
+              image: DecorationImage(
+              image: AssetImage("assets/stretch-0.jpg"), fit: BoxFit.cover)),
+              child:Align(
+                alignment: Alignment.bottomLeft,
+                child : Text(
+                  "Stretching App",
+                  textAlign: TextAlign.left,
+                  style: TextStyle(
+                    fontSize: 25,
+                    fontWeight: FontWeight.w500,
+                    color: Colors.white,
+                  ),
+                ),
+              )
+
             ),
+          ),
+          ListTile(
+            leading: StretchingExercisesTab.androidIcon,
+            title: Text(StretchingExercisesTab.title),
+            onTap: () {
+              Navigator.pop(context);
+              Navigator.push<void>(
+                  context, MaterialPageRoute(builder: (context) => StretchingExercisesTab()));
+            },
           ),
           ListTile(
             leading: StretchesTab.androidIcon,
             title: Text(StretchesTab.title),
             onTap: () {
               Navigator.pop(context);
+              Navigator.push<void>(
+                  context, MaterialPageRoute(builder: (context) => StretchesTab()));
             },
           ),
           ListTile(
