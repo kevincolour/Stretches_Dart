@@ -16,7 +16,8 @@ class MyAdaptingApp extends StatelessWidget {
     // Either Material or Cupertino widgets work in either Material or Cupertino
     // Apps.
     return MaterialApp(
-      title: 'Adaptive Music App',
+
+      title: 'Stretching App',
       theme: ThemeData(
         // Use the green theme for Material widgets.
         primarySwatch: Colors.green,
@@ -63,7 +64,7 @@ class _PlatformAdaptingHomePageState extends State<PlatformAdaptingHomePage> {
   Widget _buildAndroidHomePage(BuildContext context) {
     return StretchingExercisesTab(
       key: StretchesTabKey,
-      androidDrawer: _AndroidDrawer(),
+      androidDrawer: _AndroidDrawer(0),
     );
   }
 
@@ -128,6 +129,13 @@ class _PlatformAdaptingHomePageState extends State<PlatformAdaptingHomePage> {
 }
 
 class _AndroidDrawer extends StatelessWidget {
+
+  int index;
+  _AndroidDrawer(int index){
+    this.index = index;
+  }
+
+
   @override
   Widget build(BuildContext context) {
     return Drawer(
@@ -161,8 +169,10 @@ class _AndroidDrawer extends StatelessWidget {
             onTap: () {
               Navigator.pop(context);
               Navigator.push<void>(
-                  context, MaterialPageRoute(builder: (context) => StretchingExercisesTab()));
+                  context, MaterialPageRoute(builder: (context) => StretchingExercisesTab(androidDrawer: _AndroidDrawer(0))));
             },
+            selected: index == 0
+            ,
           ),
           ListTile(
             leading: StretchesTab.androidIcon,
@@ -170,8 +180,9 @@ class _AndroidDrawer extends StatelessWidget {
             onTap: () {
               Navigator.pop(context);
               Navigator.push<void>(
-                  context, MaterialPageRoute(builder: (context) => StretchesTab()));
+                  context, MaterialPageRoute(builder: (context) => StretchesTab(androidDrawer: _AndroidDrawer(1))));
             },
+            selected:  index == 1,
           ),
           ListTile(
             leading: NewsTab.androidIcon,

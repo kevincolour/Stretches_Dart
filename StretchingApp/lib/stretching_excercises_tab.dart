@@ -3,7 +3,6 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:platform_design/Stretch.dart';
 
-import 'stretches_detail_tab.dart';
 import 'utils.dart';
 import 'widgets.dart';
 
@@ -60,42 +59,27 @@ class _StretchingExercisesTab extends State<StretchingExercisesTab> {
     return SafeArea(
       top: false,
       bottom: false,
-      child: Hero(
-        tag: index,
-        child: HeroAnimatingStretchCard(
-          stretch: stretches[index],
-          color: color,
-          heroAnimation: AlwaysStoppedAnimation(0),
-          onPressed: () => Navigator.of(context).push<void>(
-            MaterialPageRoute(
-              builder: (context) => StretchDetailTab(
-                id: index,
-                stretch: stretches[index],
-                color: color,
-              ),
-            ),
+      child: PressableCard(
+        onPressed: null,
+        color: Colors.white30,
+        flattenAnimation: AlwaysStoppedAnimation(1),
+        child: Card(
+          child: Container(
+            height:100,
+              child: Text(
+          'test',
+          style : TextStyle(
+            fontSize: 24
           ),
-        ),
-      ),
+          )
+
+          )
+        )
+
+        )
     );
   }
 
-  void _togglePlatform() {
-    TargetPlatform _getOppositePlatform() {
-      if (defaultTargetPlatform == TargetPlatform.iOS) {
-        return TargetPlatform.android;
-      } else {
-        return TargetPlatform.iOS;
-      }
-    }
-
-    debugDefaultTargetPlatformOverride = _getOppositePlatform();
-    // This rebuilds the application. This should obviously never be
-    // done in a real app but it's done here since this app
-    // unrealistically toggles the current platform for demonstration
-    // purposes.
-    WidgetsBinding.instance.reassembleApplication();
-  }
 
   // ===========================================================================
   // Non-shared code below because:
@@ -120,14 +104,10 @@ class _StretchingExercisesTab extends State<StretchingExercisesTab> {
         ],
       ),
       drawer: widget.androidDrawer,
-      body: RefreshIndicator(
-        key: _androidRefreshKey,
-        onRefresh: _refreshData,
-        child: ListView.builder(
+      body:  ListView.builder(
           padding: EdgeInsets.symmetric(vertical: 12),
           itemBuilder: _listBuilder,
         ),
-      ),
     );
   }
 
@@ -138,7 +118,6 @@ class _StretchingExercisesTab extends State<StretchingExercisesTab> {
           trailing: CupertinoButton(
             padding: EdgeInsets.zero,
             child: Icon(CupertinoIcons.shuffle),
-            onPressed: _togglePlatform,
           ),
         ),
         CupertinoSliverRefreshControl(

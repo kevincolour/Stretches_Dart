@@ -11,7 +11,8 @@ class Stretch{
   Stretch(int id, String name){
       this.id = id;
       this.name = name;
-      image ='assets/stretch-' + id.toString() + '.jpg';
+
+      image ='assets/stretch-' + (id > 2 ? '0' : id.toString()) + '.jpg';
   }
 
 }

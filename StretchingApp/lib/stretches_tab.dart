@@ -110,9 +110,10 @@ class _StretchesTabState extends State<StretchesTab> {
   // ===========================================================================
   Widget _buildAndroid(BuildContext context) {
     return Scaffold(
+      drawer: widget.androidDrawer,
       appBar: AppBar(
         title: Text(StretchesTab.title),
-        actions: [
+          actions: [
           IconButton(
             icon: Icon(Icons.refresh),
             onPressed: () async => await _androidRefreshKey.currentState.show(),
@@ -123,7 +124,6 @@ class _StretchesTabState extends State<StretchesTab> {
           ),
         ],
       ),
-      drawer: widget.androidDrawer,
       body: RefreshIndicator(
         key: _androidRefreshKey,
         onRefresh: _refreshData,
