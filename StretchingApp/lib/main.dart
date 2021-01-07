@@ -185,12 +185,9 @@ class _AndroidDrawer extends StatelessWidget {
             selected:  index == 1,
           ),
           ListTile(
-            leading: NewsTab.androidIcon,
-            title: Text(NewsTab.title),
+            leading: Icon(Icons.group),
+            title: Text('Community'),
             onTap: () {
-              Navigator.pop(context);
-              Navigator.push<void>(
-                  context, MaterialPageRoute(builder: (context) => NewsTab()));
             },
           ),
           ListTile(

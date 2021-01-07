@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:platform_design/Stretch.dart';
+import 'package:platform_design/strething_exercises_detail_tab.dart';
 
 import 'utils.dart';
 import 'widgets.dart';
@@ -21,8 +22,6 @@ class StretchingExercisesTab extends StatefulWidget {
 
 class _StretchingExercisesTab extends State<StretchingExercisesTab> {
   static const _itemsLength = 50;
-
-  final _androidRefreshKey = GlobalKey<RefreshIndicatorState>();
 
   List<MaterialColor> colors;
   List<Stretch> stretches;
@@ -50,28 +49,28 @@ class _StretchingExercisesTab extends State<StretchingExercisesTab> {
   Widget _listBuilder(BuildContext context, int index) {
     if (index >= _itemsLength) return null;
 
-
+    // Show a slightly different color palette. Show poppy-ier colors on iOS
+    // due to lighter contrasting bars and tone it down on Android.
+    var stretch1 = StretchExercises(index,'test');
     return SafeArea(
       top: false,
       bottom: false,
-      child: PressableCard(
-        onPressed: null,
-        color: Colors.white30,
-        flattenAnimation: AlwaysStoppedAnimation(1),
-        child: Card(
-          child: Container(
-            height:100,
-              child: Text(
-          'test',
-          style : TextStyle(
-            fontSize: 24
+      child: Hero(
+        tag: index,
+
+        child: StretchingExercisesCard(
+          stretches : stretch1,
+          heroAnimation: AlwaysStoppedAnimation(0),
+          onPressed: () => Navigator.of(context).push<void>(
+            MaterialPageRoute(
+              builder: (context) => StretchingExercisesDetailTab(
+                id: index,
+                stretches: stretch1,
+              ),
+            ),
           ),
-          )
-
-          )
-        )
-
-        )
+        ),
+      ),
     );
   }
 
@@ -92,17 +91,11 @@ class _StretchingExercisesTab extends State<StretchingExercisesTab> {
       appBar: AppBar(
         title: Text(StretchingExercisesTab.title),
         actions: [
-          IconButton(
-            icon: Icon(Icons.refresh),
-            onPressed: () async => await _androidRefreshKey.currentState.show(),
-          ),
+
         ],
       ),
       drawer: widget.androidDrawer,
-      body:  ListView.builder(
-          padding: EdgeInsets.symmetric(vertical: 12),
-          itemBuilder: _listBuilder,
-        ),
+      body:  _listBuilder(context, 0)
     );
   }
 

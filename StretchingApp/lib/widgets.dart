@@ -115,7 +115,7 @@ class _PressableCardState extends State<PressableCard>
                       ((1 - elevationAnimation.value) * 10 + 10) * flatten,
                   borderRadius: BorderRadius.circular(12 * flatten),
                   clipBehavior: Clip.antiAlias,
-                  color: widget.color,
+                  color: widget.color != null ? widget.color: Colors.white,
                   child: child,
                 ),
               ),
@@ -223,6 +223,104 @@ class HeroAnimatingStretchCard extends StatelessWidget {
     );
   }
 }
+
+
+class StretchingExercisesCard extends StatelessWidget {
+  StretchingExercisesCard(
+      {this.stretches,  this.heroAnimation, this.onPressed, this.name,
+      this.duration, this.exercisesCount});
+
+  final StretchExercises stretches;
+  final Animation<double> heroAnimation;
+  final VoidCallback onPressed;
+  final String name;
+  final int duration;
+  final int exercisesCount;
+  double get playButtonSize => 50 + 50 * heroAnimation.value;
+
+  @override
+  Widget build(context) {
+    return SafeArea(
+        top: false,
+        bottom: false,
+        child: AnimatedBuilder(
+            animation: AlwaysStoppedAnimation(1),
+            builder: (context,child){
+              return PressableCard(
+                  onPressed:  onPressed,
+                  flattenAnimation: AlwaysStoppedAnimation(1),
+
+                  child: Card(
+                      child: Container(
+                          decoration: BoxDecoration(
+                              image: DecorationImage(
+                                  image: AssetImage('assets/stretch-0.jpg'), fit: BoxFit.cover)),
+                          height:100,
+                          width: double.infinity,
+                          child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              mainAxisAlignment: MainAxisAlignment.start,
+                              mainAxisSize: MainAxisSize.min,
+                              children: <Widget>[
+                                Text(
+                                  'Morning Warmup',
+                                  style : TextStyle(
+                                      fontSize: 24,
+                                      color:Colors.white,
+                                      fontWeight: FontWeight.bold
+                                  ),
+                                ),
+                                Padding(
+                                    padding: EdgeInsets.symmetric(vertical: 16, horizontal: 0),
+                                    child: Row(
+                                        mainAxisAlignment: MainAxisAlignment.spaceAround,
+                                        mainAxisSize: MainAxisSize.min,
+                                        children: <Widget>[
+                                          Icon(Icons.access_time, size:14,color:Colors.white),
+                                          Text(
+                                            ' 15 Minutes',
+                                            style : TextStyle(
+                                                fontSize: 12,
+                                                color:Colors.white,
+                                                fontWeight: FontWeight.bold
+                                            ),
+                                          ),
+                                          SizedBox(width: 15),
+                                          Icon(Icons.lightbulb_outline, size:16,color:Colors.white),
+                                          Text(
+                                            ' 6 Exercises',
+                                            style : TextStyle(
+                                                fontSize: 12,
+                                                color:Colors.white,
+                                                fontWeight: FontWeight.bold
+                                            ),
+                                          ),
+
+                                        ]
+
+
+                                    )
+
+                                )
+
+
+                              ]
+                          )
+
+
+                      )
+                  )
+
+              );
+            }
+
+        )
+
+    );
+  }
+}
+
+
 
 /// A loading song tile's silhouette.
 ///

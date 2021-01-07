@@ -27,7 +27,7 @@ class ProfileTab extends StatelessWidget {
                 ),
               ),
             ),
-            PreferenceCard(
+/*            PreferenceCard(
               header: 'MY INTENSITY PREFERENCE',
               content: '🔥',
               preferenceChoices: [
@@ -47,7 +47,7 @@ class ProfileTab extends StatelessWidget {
                 'Hello fellow Martians',
                 'Into the darkness',
               ],
-            ),
+            ),*/
             Expanded(
               child: Container(),
             ),
