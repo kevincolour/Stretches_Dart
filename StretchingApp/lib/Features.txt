@@ -11,3 +11,7 @@ USER PROFILE
 LOCALIZATION
 
 
+MUSIC
+    ability to play music
+    start/stop music
+    maybe choose own

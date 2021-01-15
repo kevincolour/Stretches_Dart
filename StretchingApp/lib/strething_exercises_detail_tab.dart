@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:platform_design/Stretch.dart';
+import 'package:platform_design/localization.dart';
 
 import 'widgets.dart';
 
@@ -45,15 +46,12 @@ class StretchingExercisesDetailTab extends StatelessWidget {
             color: Colors.grey,
           ),
           Expanded(
-            child: ListView.builder(
-              itemCount: 10,
-              itemBuilder: (context, index) {
-                // Just a bunch of boxes that simulates loading song choices.
-                if( index < 4){
-                  return StretchesDetailTile();
-                }
-
-              },
+            child: Container(
+              child: ListView(
+                children: [
+                  for ( var stretch in stretches.Stretches) StretchesDetailTile(stretch: stretch)
+                ],
+              ),
             ),
           ),
         ],
@@ -65,12 +63,50 @@ class StretchingExercisesDetailTab extends StatelessWidget {
   // Non-shared code below because we're using different scaffolds.
   // ===========================================================================
 
+/*  Widget _buildAndroid(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(title: Text(stretches.name)),
+      body: _buildBody(),
+        floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
+      floatingActionButton: Container(
+        height: 100.0,
+        width: 200.0,
+        child: FittedBox(
+          fit: BoxFit.contain,
+          child:  FloatingActionButton(
+              elevation: 0.0,
+              child: Container(
+                  width: 100,
+                  height: 50,
+                  child:Center(
+                      child: Text('Start')
+                  )
+              ),
+              backgroundColor: Colors.lightGreen,
+              onPressed: (){}
+          )
+        ),
+      ),
+    );
+  }*/
   Widget _buildAndroid(BuildContext context) {
     return Scaffold(
       appBar: AppBar(title: Text(stretches.name)),
       body: _buildBody(),
+      floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
+      floatingActionButton:  Container(
+    height: 50.0,
+    width: 150.0,
+    child: FloatingActionButton.extended(
+                elevation: 0.0,
+                label: Text(LocalizationsMap.of(context).start),
+                backgroundColor: Colors.lightGreen,
+                onPressed: (){}
+            )
+      )
     );
   }
+
 
   Widget _buildIos(BuildContext context) {
     return CupertinoPageScaffold(

@@ -3,16 +3,19 @@
 
 class Stretch{
 
-
-  int id;
+  String id;
   String name;
   String image;
+  String description;
+  int duration;
 
-  Stretch(int id, String name){
+  Stretch(String id, String name, int duration, String description){
       this.id = id;
       this.name = name;
+      this.duration = duration;
+      this.description = description;
 
-      image ='assets/stretch-' + (id > 2 ? '0' : id.toString()) + '.jpg';
+      image ='assets/' + name + '.png';
   }
 
 }
@@ -30,6 +33,7 @@ class StretchExercises{
     this.name = name;
     this.duration = duration;
     this.exercisesCount = exercisesCount;
+    Stretches = [];
   }
 
 }

@@ -52,7 +52,19 @@ class _StretchingExercisesTab extends State<StretchingExercisesTab> {
     // Show a slightly different color palette. Show poppy-ier colors on iOS
     // due to lighter contrasting bars and tone it down on Android.
     var stretch1 = StretchExercises(index,LocalizationsMap.of(context).bd, 15, 6);
+
+
     var stretch2 = StretchExercises(index,LocalizationsMap.of(context).bp, 1, 2);
+    stretch1.Stretches.add(Stretch('1_1','BD_1_1',10, LocalizationsMap.of(context).bd_1_1));
+    stretch1.Stretches.add(Stretch('1_2','BD_1_2',10, LocalizationsMap.of(context).bd_1_2));
+    stretch1.Stretches.add(Stretch('2_1','BD_2_1',10, LocalizationsMap.of(context).bd_2_1));
+    stretch1.Stretches.add(Stretch('2_2','BD_2_2',10, LocalizationsMap.of(context).bd_2_2));
+    stretch1.Stretches.add(Stretch('3_1','BD_3_1',10, LocalizationsMap.of(context).bd_3_1));
+    stretch1.Stretches.add(Stretch('3_2','BD_3_2',10, LocalizationsMap.of(context).bd_3_2));
+    stretch1.Stretches.add(Stretch('4_1','BD_4_1',10, LocalizationsMap.of(context).bd_4_1));
+    stretch1.Stretches.add(Stretch('4_2','BD_4_2',10, LocalizationsMap.of(context).bd_4_2));
+
+
     var stretch3 = StretchExercises(index,LocalizationsMap.of(context).es, 30, 5);
     var stretch4 = StretchExercises(index,LocalizationsMap.of(context).ld, 10, 3);
 

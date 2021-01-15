@@ -384,9 +384,9 @@ class SongPlaceholderTile extends StatelessWidget {
 }
 
 class StretchesDetailTile extends StatelessWidget {
-  final StretchExercises exercises;
-  StretchesDetailTile({this.exercises});
 
+  StretchesDetailTile({this.stretch});
+  final Stretch stretch;
   @override
   Widget build(BuildContext context) {
     return SizedBox(
@@ -398,7 +398,7 @@ class StretchesDetailTile extends StatelessWidget {
             Container(
               decoration: BoxDecoration(
                   image: DecorationImage(
-                      image: AssetImage('assets/cat.gif'), fit: BoxFit.cover)),
+                      image: AssetImage(stretch.image ), fit: BoxFit.fill)),
               width: 130,
             ),
             Padding(
@@ -411,16 +411,31 @@ class StretchesDetailTile extends StatelessWidget {
                   Container(
                     height: 20,
                     child: Text(
-                      'Stretch Title',
+                      stretch.name,
                       style: TextStyle(
                         fontSize: 20
                       ),
                     ),
                   ),
                   Container(
-                    height: 9,
-                    margin: EdgeInsets.only(right: 40, top: 8),
-                    color: Theme.of(context).textTheme.bodyText2.color,
+                    child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceAround,
+                        mainAxisSize: MainAxisSize.min,
+                        children: <Widget>[
+                          Icon(Icons.access_time, size:14,color:Colors.white),
+                          Text(
+                            stretch.duration.toString() + ' ' + LocalizationsMap.of(context).minutes,
+                            style : TextStyle(
+                                fontSize: 12,
+                                color:Colors.white,
+                                fontWeight: FontWeight.bold
+                            ),
+                          ),
+
+                        ]
+
+
+                    )
                   ),
                   Container(
                     height: 9,
