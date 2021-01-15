@@ -2,13 +2,13 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:platform_design/Stretch.dart';
+import 'package:platform_design/localization.dart';
 import 'package:platform_design/strething_exercises_detail_tab.dart';
 
 import 'utils.dart';
 import 'widgets.dart';
 
 class StretchingExercisesTab extends StatefulWidget {
-  static const title = 'Stretching Exercises';
   static const androidIcon = Icon(Icons.arrow_forward);
   static const iosIcon = Icon(CupertinoIcons.music_note);
 
@@ -51,27 +51,100 @@ class _StretchingExercisesTab extends State<StretchingExercisesTab> {
 
     // Show a slightly different color palette. Show poppy-ier colors on iOS
     // due to lighter contrasting bars and tone it down on Android.
-    var stretch1 = StretchExercises(index,'test');
-    return SafeArea(
-      top: false,
-      bottom: false,
-      child: Hero(
-        tag: index,
+    var stretch1 = StretchExercises(index,LocalizationsMap.of(context).bd, 15, 6);
+    var stretch2 = StretchExercises(index,LocalizationsMap.of(context).bp, 1, 2);
+    var stretch3 = StretchExercises(index,LocalizationsMap.of(context).es, 30, 5);
+    var stretch4 = StretchExercises(index,LocalizationsMap.of(context).ld, 10, 3);
 
-        child: StretchingExercisesCard(
-          stretches : stretch1,
-          heroAnimation: AlwaysStoppedAnimation(0),
-          onPressed: () => Navigator.of(context).push<void>(
-            MaterialPageRoute(
-              builder: (context) => StretchingExercisesDetailTab(
-                id: index,
-                stretches: stretch1,
+
+    return
+
+      Column(
+          children :[
+        SafeArea(
+        top: false,
+        bottom: false,
+        child: Hero(
+          tag: index ,
+
+          child: StretchingExercisesCard(
+            stretches : stretch1,
+            heroAnimation: AlwaysStoppedAnimation(0),
+            onPressed: () => Navigator.of(context).push<void>(
+              MaterialPageRoute(
+                builder: (context) => StretchingExercisesDetailTab(
+                  id: index,
+                  stretches: stretch1,
+                ),
               ),
             ),
           ),
         ),
       ),
-    );
+            SafeArea(
+              top: false,
+              bottom: false,
+              child: Hero(
+                tag: index + 1,
+
+                child: StretchingExercisesCard(
+                  stretches : stretch2,
+                  heroAnimation: AlwaysStoppedAnimation(0),
+                  onPressed: () => Navigator.of(context).push<void>(
+                    MaterialPageRoute(
+                      builder: (context) => StretchingExercisesDetailTab(
+                        id: index + 1,
+                        stretches: stretch2,
+                      ),
+                    ),
+                  ),
+                ),
+              ),
+            ),
+
+            SafeArea(
+              top: false,
+              bottom: false,
+              child: Hero(
+                tag: index + 2,
+
+                child: StretchingExercisesCard(
+                  stretches : stretch3,
+                  heroAnimation: AlwaysStoppedAnimation(0),
+                  onPressed: () => Navigator.of(context).push<void>(
+                    MaterialPageRoute(
+                      builder: (context) => StretchingExercisesDetailTab(
+                        id: index + 2,
+                        stretches: stretch3,
+                      ),
+                    ),
+                  ),
+                ),
+              ),
+            ),
+            SafeArea(
+              top: false,
+              bottom: false,
+              child: Hero(
+                tag: index + 3,
+
+                child: StretchingExercisesCard(
+                  stretches : stretch4,
+                  heroAnimation: AlwaysStoppedAnimation(0),
+                  onPressed: () => Navigator.of(context).push<void>(
+                    MaterialPageRoute(
+                      builder: (context) => StretchingExercisesDetailTab(
+                        id: index + 3,
+                        stretches: stretch4,
+                      ),
+                    ),
+                  ),
+                ),
+              ),
+            ),
+          ]
+      );
+
   }
 
 
@@ -89,7 +162,7 @@ class _StretchingExercisesTab extends State<StretchingExercisesTab> {
   Widget _buildAndroid(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text(StretchingExercisesTab.title),
+        title: Text(LocalizationsMap.of(context).stretchingExercisesString),
         actions: [
 
         ],

@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:platform_design/localization.dart';
 import 'package:platform_design/stretching_excercises_tab.dart';
 
 import 'news_tab.dart';
@@ -7,6 +8,9 @@ import 'profile_tab.dart';
 import 'settings_tab.dart';
 import 'stretches_tab.dart';
 import 'widgets.dart';
+
+
+import 'package:flutter_localizations/flutter_localizations.dart';
 
 void main() => runApp(MyAdaptingApp());
 
@@ -16,7 +20,16 @@ class MyAdaptingApp extends StatelessWidget {
     // Either Material or Cupertino widgets work in either Material or Cupertino
     // Apps.
     return MaterialApp(
-
+    onGenerateTitle: (context) => LocalizationsMap.of(context).title,
+      localizationsDelegates: [
+        const LocalizationsMapDelegate(),
+        GlobalMaterialLocalizations.delegate,
+        GlobalWidgetsLocalizations.delegate,
+      ],
+      supportedLocales: [
+        const Locale('en', ''),
+        const Locale('ko', ''),
+      ],
       title: 'Stretching App',
       theme: ThemeData(
         // Use the green theme for Material widgets.
@@ -147,11 +160,11 @@ class _AndroidDrawer extends StatelessWidget {
             child:DrawerHeader(
               decoration: BoxDecoration(
               image: DecorationImage(
-              image: AssetImage("assets/stretch-0.jpg"), fit: BoxFit.cover)),
+              image: AssetImage('assets/stretch-0.jpg'), fit: BoxFit.cover)),
               child:Align(
                 alignment: Alignment.bottomLeft,
                 child : Text(
-                  "Stretching App",
+                  LocalizationsMap.of(context).title,
                   textAlign: TextAlign.left,
                   style: TextStyle(
                     fontSize: 25,
@@ -165,7 +178,7 @@ class _AndroidDrawer extends StatelessWidget {
           ),
           ListTile(
             leading: StretchingExercisesTab.androidIcon,
-            title: Text(StretchingExercisesTab.title),
+            title: Text(LocalizationsMap.of(context).stretchingExercisesString),
             onTap: () {
               Navigator.pop(context);
               Navigator.push<void>(

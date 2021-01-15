@@ -10,6 +10,8 @@ dependencies:
   flutter_lorem: ^1.1.0
   flutter:
     sdk: flutter
+  flutter_localizations:
+    sdk: flutter
 
   cupertino_icons: ^0.1.3
 

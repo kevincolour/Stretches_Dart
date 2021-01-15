@@ -48,21 +48,11 @@ class StretchingExercisesDetailTab extends StatelessWidget {
             child: ListView.builder(
               itemCount: 10,
               itemBuilder: (context, index) {
-                if (index == 0) {
-                  return Padding(
-                    padding:
-                    const EdgeInsets.only(left: 15, top: 16, bottom: 8),
-                    child: Text(
-                      'You might also like:',
-                      style: TextStyle(
-                        fontSize: 16,
-                        fontWeight: FontWeight.w500,
-                      ),
-                    ),
-                  );
-                }
                 // Just a bunch of boxes that simulates loading song choices.
-                return SongPlaceholderTile();
+                if( index < 4){
+                  return StretchesDetailTile();
+                }
+
               },
             ),
           ),

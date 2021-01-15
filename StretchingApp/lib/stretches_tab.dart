@@ -57,7 +57,7 @@ class _StretchesTabState extends State<StretchesTab> {
         ? colors[index]
         : colors[index].shade400;
 
-    return SafeArea(
+    return      SafeArea(
       top: false,
       bottom: false,
       child: Hero(

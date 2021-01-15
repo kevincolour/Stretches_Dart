@@ -2,6 +2,7 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:platform_design/Stretch.dart';
+import 'package:platform_design/localization.dart';
 
 /// A simple widget that builds different things on different platforms.
 class PlatformWidget extends StatelessWidget {
@@ -255,7 +256,7 @@ class StretchingExercisesCard extends StatelessWidget {
                           decoration: BoxDecoration(
                               image: DecorationImage(
                                   image: AssetImage('assets/stretch-0.jpg'), fit: BoxFit.cover)),
-                          height:100,
+                          height:150,
                           width: double.infinity,
                           child: Column(
                               crossAxisAlignment: CrossAxisAlignment.start,
@@ -263,7 +264,7 @@ class StretchingExercisesCard extends StatelessWidget {
                               mainAxisSize: MainAxisSize.min,
                               children: <Widget>[
                                 Text(
-                                  'Morning Warmup',
+                                  stretches.name,
                                   style : TextStyle(
                                       fontSize: 24,
                                       color:Colors.white,
@@ -278,7 +279,7 @@ class StretchingExercisesCard extends StatelessWidget {
                                         children: <Widget>[
                                           Icon(Icons.access_time, size:14,color:Colors.white),
                                           Text(
-                                            ' 15 Minutes',
+                                            stretches.duration.toString() + ' ' + LocalizationsMap.of(context).minutes,
                                             style : TextStyle(
                                                 fontSize: 12,
                                                 color:Colors.white,
@@ -288,7 +289,7 @@ class StretchingExercisesCard extends StatelessWidget {
                                           SizedBox(width: 15),
                                           Icon(Icons.lightbulb_outline, size:16,color:Colors.white),
                                           Text(
-                                            ' 6 Exercises',
+                                            stretches.exercisesCount.toString() + ' ' + LocalizationsMap.of(context).exercises,
                                             style : TextStyle(
                                                 fontSize: 12,
                                                 color:Colors.white,
@@ -333,11 +334,12 @@ class SongPlaceholderTile extends StatelessWidget {
       height: 95,
       child: Padding(
         padding: EdgeInsets.symmetric(horizontal: 15, vertical: 8),
-        child: Row(
+        child:  Row(
           children: [
             Container(
               color: Theme.of(context).textTheme.bodyText2.color,
               width: 130,
+
             ),
             Padding(
               padding: EdgeInsets.only(left: 12),
@@ -380,6 +382,66 @@ class SongPlaceholderTile extends StatelessWidget {
     );
   }
 }
+
+class StretchesDetailTile extends StatelessWidget {
+  final StretchExercises exercises;
+  StretchesDetailTile({this.exercises});
+
+  @override
+  Widget build(BuildContext context) {
+    return SizedBox(
+      height: 95,
+      child: Padding(
+        padding: EdgeInsets.symmetric(horizontal: 15, vertical: 8),
+        child: Row(
+          children: [
+            Container(
+              decoration: BoxDecoration(
+                  image: DecorationImage(
+                      image: AssetImage('assets/cat.gif'), fit: BoxFit.cover)),
+              width: 130,
+            ),
+            Padding(
+              padding: EdgeInsets.only(left: 12),
+            ),
+            Expanded(
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Container(
+                    height: 20,
+                    child: Text(
+                      'Stretch Title',
+                      style: TextStyle(
+                        fontSize: 20
+                      ),
+                    ),
+                  ),
+                  Container(
+                    height: 9,
+                    margin: EdgeInsets.only(right: 40, top: 8),
+                    color: Theme.of(context).textTheme.bodyText2.color,
+                  ),
+                  Container(
+                    height: 9,
+                    margin: EdgeInsets.only(right: 80, top: 8),
+                    color: Theme.of(context).textTheme.bodyText2.color,
+                  ),
+                  Container(
+                    height: 9,
+                    margin: EdgeInsets.only(right: 50, top: 8),
+                    color: Theme.of(context).textTheme.bodyText2.color,
+                  ),
+                ],
+              ),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+}
+
 
 // ===========================================================================
 // Non-shared code below because different interfaces are shown to prompt
