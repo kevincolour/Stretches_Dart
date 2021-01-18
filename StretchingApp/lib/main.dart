@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:platform_design/localization.dart';
 import 'package:platform_design/stretching_excercises_tab.dart';
+import 'package:flutter_localizations/flutter_localizations.dart';
 
 import 'news_tab.dart';
 import 'profile_tab.dart';
@@ -10,7 +11,6 @@ import 'stretches_tab.dart';
 import 'widgets.dart';
 
 
-import 'package:flutter_localizations/flutter_localizations.dart';
 
 void main() => runApp(MyAdaptingApp());
 
@@ -134,6 +134,9 @@ class _PlatformAdaptingHomePageState extends State<PlatformAdaptingHomePage> {
 
   @override
   Widget build(context) {
+/*    SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle(
+      statusBarColor: Colors.green,
+    ));*/
     return PlatformWidget(
       androidBuilder: _buildAndroidHomePage,
       iosBuilder: _buildIosHomePage,

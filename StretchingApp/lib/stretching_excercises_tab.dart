@@ -5,6 +5,7 @@ import 'package:platform_design/Stretch.dart';
 import 'package:platform_design/localization.dart';
 import 'package:platform_design/strething_exercises_detail_tab.dart';
 
+
 import 'utils.dart';
 import 'widgets.dart';
 
@@ -55,14 +56,14 @@ class _StretchingExercisesTab extends State<StretchingExercisesTab> {
 
 
     var stretch2 = StretchExercises(index,LocalizationsMap.of(context).bp, 1, 2);
-    stretch1.Stretches.add(Stretch('1_1','BD_1_1',10, LocalizationsMap.of(context).bd_1_1));
-    stretch1.Stretches.add(Stretch('1_2','BD_1_2',10, LocalizationsMap.of(context).bd_1_2));
-    stretch1.Stretches.add(Stretch('2_1','BD_2_1',10, LocalizationsMap.of(context).bd_2_1));
-    stretch1.Stretches.add(Stretch('2_2','BD_2_2',10, LocalizationsMap.of(context).bd_2_2));
-    stretch1.Stretches.add(Stretch('3_1','BD_3_1',10, LocalizationsMap.of(context).bd_3_1));
-    stretch1.Stretches.add(Stretch('3_2','BD_3_2',10, LocalizationsMap.of(context).bd_3_2));
-    stretch1.Stretches.add(Stretch('4_1','BD_4_1',10, LocalizationsMap.of(context).bd_4_1));
-    stretch1.Stretches.add(Stretch('4_2','BD_4_2',10, LocalizationsMap.of(context).bd_4_2));
+    stretch1.Stretches.add(Stretch('1_1','BD_1_1',30, LocalizationsMap.of(context).bd_1_1));
+    stretch1.Stretches.add(Stretch('1_2','BD_1_2',30, LocalizationsMap.of(context).bd_1_2));
+    stretch1.Stretches.add(Stretch('2_1','BD_2_1',30, LocalizationsMap.of(context).bd_2_1));
+    stretch1.Stretches.add(Stretch('2_2','BD_2_2',30, LocalizationsMap.of(context).bd_2_2));
+    stretch1.Stretches.add(Stretch('3_1','BD_3_1',30, LocalizationsMap.of(context).bd_3_1));
+    stretch1.Stretches.add(Stretch('3_2','BD_3_2',30, LocalizationsMap.of(context).bd_3_2));
+    stretch1.Stretches.add(Stretch('4_1','BD_4_1',30, LocalizationsMap.of(context).bd_4_1));
+    stretch1.Stretches.add(Stretch('4_2','BD_4_2',30, LocalizationsMap.of(context).bd_4_2));
 
 
     var stretch3 = StretchExercises(index,LocalizationsMap.of(context).es, 30, 5);
@@ -72,28 +73,31 @@ class _StretchingExercisesTab extends State<StretchingExercisesTab> {
     return
 
       Column(
+          crossAxisAlignment: CrossAxisAlignment.stretch,
           children :[
-        SafeArea(
-        top: false,
-        bottom: false,
-        child: Hero(
-          tag: index ,
+            Expanded(child:SafeArea(
+              top: false,
+              bottom: false,
+              child: Hero(
+                tag: index ,
 
-          child: StretchingExercisesCard(
-            stretches : stretch1,
-            heroAnimation: AlwaysStoppedAnimation(0),
-            onPressed: () => Navigator.of(context).push<void>(
-              MaterialPageRoute(
-                builder: (context) => StretchingExercisesDetailTab(
-                  id: index,
-                  stretches: stretch1,
+                child: StretchingExercisesCard(
+                  stretches : stretch1,
+                  heroAnimation: AlwaysStoppedAnimation(0),
+                  onPressed: () => Navigator.of(context).push<void>(
+                    MaterialPageRoute(
+                      builder: (context) => StretchingExercisesDetailTab(
+                        id: index,
+                        stretches: stretch1,
+                      ),
+                    ),
+                  ),
                 ),
               ),
             ),
-          ),
-        ),
-      ),
-            SafeArea(
+
+            ),
+            Expanded(child:SafeArea(
               top: false,
               bottom: false,
               child: Hero(
@@ -114,7 +118,8 @@ class _StretchingExercisesTab extends State<StretchingExercisesTab> {
               ),
             ),
 
-            SafeArea(
+            ),
+            Expanded(child:SafeArea(
               top: false,
               bottom: false,
               child: Hero(
@@ -134,11 +139,13 @@ class _StretchingExercisesTab extends State<StretchingExercisesTab> {
                 ),
               ),
             ),
-            SafeArea(
+
+            ),
+            Expanded(child:SafeArea(
               top: false,
               bottom: false,
               child: Hero(
-                tag: index + 3,
+                tag: index + 3  ,
 
                 child: StretchingExercisesCard(
                   stretches : stretch4,
@@ -154,6 +161,9 @@ class _StretchingExercisesTab extends State<StretchingExercisesTab> {
                 ),
               ),
             ),
+
+            ),
+
           ]
       );
 
@@ -211,6 +221,7 @@ class _StretchingExercisesTab extends State<StretchingExercisesTab> {
 
   @override
   Widget build(context) {
+
     return PlatformWidget(
       androidBuilder: _buildAndroid,
       iosBuilder: _buildIos,

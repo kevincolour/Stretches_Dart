@@ -2,8 +2,8 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:platform_design/Stretch.dart';
+import 'package:platform_design/start_exercises_tab.dart';
 
-import 'stretches_detail_tab.dart';
 import 'utils.dart';
 import 'widgets.dart';
 
@@ -68,10 +68,7 @@ class _StretchesTabState extends State<StretchesTab> {
           heroAnimation: AlwaysStoppedAnimation(0),
           onPressed: () => Navigator.of(context).push<void>(
             MaterialPageRoute(
-              builder: (context) => StretchDetailTab(
-                id: index,
-                stretch: stretches[index],
-                color: color,
+              builder: (context) => StartExercisesTab(
               ),
             ),
           ),

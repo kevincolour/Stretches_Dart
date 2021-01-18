@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:platform_design/Stretch.dart';
 import 'package:platform_design/localization.dart';
+import 'package:platform_design/start_exercises_tab.dart';
 
 import 'widgets.dart';
 
@@ -91,18 +92,22 @@ class StretchingExercisesDetailTab extends StatelessWidget {
   }*/
   Widget _buildAndroid(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text(stretches.name)),
       body: _buildBody(),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
       floatingActionButton:  Container(
-    height: 50.0,
-    width: 150.0,
-    child: FloatingActionButton.extended(
-                elevation: 0.0,
-                label: Text(LocalizationsMap.of(context).start),
-                backgroundColor: Colors.lightGreen,
-                onPressed: (){}
-            )
+      height: 50.0,
+      width: 150.0,
+      child: FloatingActionButton.extended(
+                  elevation: 0.0,
+                  label: Text(LocalizationsMap.of(context).start),
+                  backgroundColor: Colors.lightGreen,
+                  onPressed: () => Navigator.of(context).push<void>(
+                    MaterialPageRoute(
+                      builder: (context) => StartExercisesTab(stretches: stretches,
+                      ),
+                    ),
+                  ),
+              )
       )
     );
   }

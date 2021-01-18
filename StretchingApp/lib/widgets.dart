@@ -398,7 +398,7 @@ class StretchesDetailTile extends StatelessWidget {
             Container(
               decoration: BoxDecoration(
                   image: DecorationImage(
-                      image: AssetImage(stretch.image ), fit: BoxFit.fill)),
+                      image: AssetImage(stretch.image ), fit: BoxFit.contain)),
               width: 130,
             ),
             Padding(
@@ -437,16 +437,7 @@ class StretchesDetailTile extends StatelessWidget {
 
                     )
                   ),
-                  Container(
-                    height: 9,
-                    margin: EdgeInsets.only(right: 80, top: 8),
-                    color: Theme.of(context).textTheme.bodyText2.color,
-                  ),
-                  Container(
-                    height: 9,
-                    margin: EdgeInsets.only(right: 50, top: 8),
-                    color: Theme.of(context).textTheme.bodyText2.color,
-                  ),
+
                 ],
               ),
             ),

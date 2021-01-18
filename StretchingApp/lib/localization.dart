@@ -55,7 +55,21 @@ class LocalizationsMap {
         'bp_6' : '어깨와 팔꿈치를 편 상태로 상체를 뒤로 눌러준다.',
 
 
+
+
       'bd' : 'Before practicing at driving range',
+        'bd_1_1' : '허리를 펴고 고개와 어깨선을 수평으로 유지하면서 머리에 손을 얹은 후 옆으로 천천히 당긴다.  ',
+        'bd_1_2' : '허리를 펴고 고개와 어깨선을 수평으로 유지하면서 머리에 손을 얹은 후 옆으로 천천히 당긴다.  ',
+        'bd_2_1' : '오른팔을 왼쪽 어깨쪽으로 쭉 펴고 왼팔을 위쪽으로 굽혀 오른팔꿈치 부분을 감싼 후, 오른팔은 바깥쪽으로 힘을 주고 왼팔은 몸쪽으로 힘을 주어 밀어준다',
+        'bd_2_2' : '왼팔을 오른쪽 어깨쪽으로 쭉 펴고 오른팔을 위쪽으로 굽혀 왼팔꿈치 부분을 감싼 후, 왼팔은 바깥쪽으로 힘을 주고 오른팔은 몸쪽으로 힘을 주어 밀어준다',
+        'bd_3_1' : '팔을 머리 위로 올리고 팔꿈치를 구부려 손을 등 뒤로 넘기고, 반대 손으로 팔꿈치를 잡고 부드럽게 당긴다.',
+        'bd_3_2' : '팔을 머리 위로 올리고 팔꿈치를 구부려 손을 등 뒤로 넘기고, 반대 손으로 팔꿈치를 잡고 부드럽게 당긴다.',
+        'bd_4_1' : '오른쪽 다리를 펴고 왼쪽 다리는 구부린 상태에서 상체를 숙인다',
+        'bd_4_2' : '왼쪽 다리를 펴고 오른쪽 다리는 구부린 상태에서 상체를 숙인다',
+        'bd_5_1' : '한손으로 반대편 다리를 눌러주면서 고개를 돌리며서 몸을 비튼다',
+        'bd_5_2' : '한손으로 반대편 다리를 눌러주면서 고개를 돌리며서 몸을 비튼다',
+        'bd_6' : '어깨와 팔꿈치를 편 상태로 상체를 뒤로 눌러준다.',
+
       'ld' : 'strengthen core',
       'es' : 'everyday stretching for hole in one',
 
@@ -80,7 +94,21 @@ class LocalizationsMap {
         'bp_5_1' : '한손으로 반대편 다리를 눌러주면서 고개를 돌리며서 몸을 비튼다',
         'bp_5_2' : '한손으로 반대편 다리를 눌러주면서 고개를 돌리며서 몸을 비튼다',
         'bp_6' : '어깨와 팔꿈치를 편 상태로 상체를 뒤로 눌러준다.',
-        
+
+        'bd_1_1' : '오른팔을 앞으로 뻗어서 손등이 보이도록 한 상태에서, 왼손으로 오른손 바닥을 당겨준다',
+        'bd_1_2' : '왼팔을 앞으로 뻗어서 손등이 보이도록 한 상태에서, 오른손으로 왼손 바닥을 당겨준다',
+        'bd_2_1' : '허리를 펴고 고개와 어깨선을 수평으로 유지하면서 머리에 손을 얹은 후 옆으로 천천히 당긴다.  ',
+        'bd_2_2' : '허리를 펴고 고개와 어깨선을 수평으로 유지하면서 머리에 손을 얹은 후 옆으로 천천히 당긴다.  ',
+        'bd_3_1' : '오른팔을 왼쪽 어깨쪽으로 쭉 펴고 왼팔을 위쪽으로 굽혀 오른팔꿈치 부분을 감싼 후, 오른팔은 바깥쪽으로 힘을 주고 왼팔은 몸쪽으로 힘을 주어 밀어준다',
+        'bd_3_2' : '왼팔을 오른쪽 어깨쪽으로 쭉 펴고 오른팔을 위쪽으로 굽혀 왼팔꿈치 부분을 감싼 후, 왼팔은 바깥쪽으로 힘을 주고 오른팔은 몸쪽으로 힘을 주어 밀어준다',
+        'bd_4_1' : '양손을 가능한 위로 늘인 후, 깍지 낀 팔과 몸을 오른쪽으로 당긴다.',
+        'bd_4_2' : '양손을 가능한 위로 늘인 후, 깍지 낀 팔과 몸을 왼쪽으로 당긴다.',
+        'bd_5' : '무릎을 편채, 상체를 앞으로 숙인다.',
+        'bd_6_1' : '뒷꿈치을 바닥에서 붙인 상태에서, 양발을 앞뒤로 넓게 벌린다',
+        'bd_6_2' : '뒷꿈치을 바닥에서 붙인 상태에서, 양발을 앞뒤로 넓게 벌린다',
+
+
+
 
 
       'bd' : '래인지 애서',
@@ -104,6 +132,41 @@ class LocalizationsMap {
   String get bp {
     return _localizedValues[locale.languageCode]['bp'];
   }
+
+  String get bp_1_1 {
+    return _localizedValues[locale.languageCode]['bp_1_1'];
+  }
+  String get bp_1_2 {
+    return _localizedValues[locale.languageCode]['bp_1_2'];
+  }
+  String get bp_2_1 {
+    return _localizedValues[locale.languageCode]['bp_2_1'];
+  }
+  String get bp_2_2 {
+    return _localizedValues[locale.languageCode]['bp_2_2'];
+  }
+  String get bp_3_1 {
+    return _localizedValues[locale.languageCode]['bp_3_1'];
+  }
+  String get bp_3_2 {
+    return _localizedValues[locale.languageCode]['bp_3_2'];
+  }
+  String get bp_4_1 {
+    return _localizedValues[locale.languageCode]['bp_4_1'];
+  }
+  String get bp_4_2 {
+    return _localizedValues[locale.languageCode]['bp_4_2'];
+  }
+  String get bp_5 {
+    return _localizedValues[locale.languageCode]['bp_5'];
+  }
+  String get bp_6_1 {
+    return _localizedValues[locale.languageCode]['bp_6_1'];
+  }
+  String get bp_6_2 {
+    return _localizedValues[locale.languageCode]['bp_6_2'];
+  }
+
 
 
 
